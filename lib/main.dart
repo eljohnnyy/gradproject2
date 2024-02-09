@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradproject/Features/home/presentation/views/main_page.dart';
 import 'package:gradproject/views/splash_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 void main() {
@@ -11,6 +12,10 @@ class GradProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      routes: {
+MainPage.homePageId:(context)=>const MainPage(),
+
+      },
        localizationsDelegates:const [
     GlobalMaterialLocalizations.delegate,
     GlobalWidgetsLocalizations.delegate,

@@ -10,10 +10,11 @@ class AppBarRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+
       children: [
-      Image.asset('assets/images/logo.png',width: 100,),
-       SizedBox(width: MediaQuery.of(context).size.width*.2,),
-    const  CustomButton(hint: 'تسجيل',color: Colors.white,backgroundColor: Colors.black,),
+      Image.asset('assets/images/logo.png',width: 70,),
+     const  Spacer(),
+    const  CustomButton(hint: 'تسجيل',color: Colors.white,backgroundColor: purple,),
      IconButton(onPressed: (){}, icon: const Icon(Icons.menu,size: 50,))
       ],
     );

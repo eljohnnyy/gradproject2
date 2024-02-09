@@ -1,7 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:gradproject/Features/home/presentation/views/main_page.dart';
 import 'package:gradproject/const.dart';
+import 'package:gradproject/views/home_view.dart';
 
 class StackTwo extends StatelessWidget {
   const StackTwo({
@@ -19,7 +21,7 @@ class StackTwo extends StatelessWidget {
           //Image.asset('assets/images/logo3.png',height: 300,),
        GestureDetector(
         onTap: () {
-          print('object');
+         Navigator.pushNamed(context, MainPage.homePageId);
         },
          child:const Stack(children: [
             Padding(
