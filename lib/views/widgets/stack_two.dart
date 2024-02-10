@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradproject/Features/home/presentation/views/main_page.dart';
 import 'package:gradproject/const.dart';
-import 'package:gradproject/views/home_view.dart';
+
 
 class StackTwo extends StatelessWidget {
   const StackTwo({

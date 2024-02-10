@@ -33,7 +33,7 @@ class StackThree extends StatelessWidget {
     ),
     child:GestureDetector(
       onTap: () {
-        print('object');
+     
       },
       child: const CircleAvatar(
         

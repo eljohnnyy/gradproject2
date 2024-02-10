@@ -1,5 +1,4 @@
-import 'package:awesome_icons/awesome_icons.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:gradproject/const.dart';
 
@@ -17,7 +16,7 @@ class ServiceImage extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.asset(
-                'assets/images/shop.jpg',
+                'assets/images/service.jpg',
                 height: 500,
                 width: MediaQuery.of(context).size.width * .7,
                 fit: BoxFit.fill,

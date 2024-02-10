@@ -30,7 +30,7 @@ class _PageViewExampleState extends State<PageViewExample> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
             width: 200.0,
   height: 300.0,
           child: PageView.builder(
@@ -46,7 +46,7 @@ class _PageViewExampleState extends State<PageViewExample> {
                 width: 3,
                )
                ),
-                child: Content(),
+                child:const Content(),
               );
             },
           ),
