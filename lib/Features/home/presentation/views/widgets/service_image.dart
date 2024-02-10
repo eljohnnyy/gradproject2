@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:gradproject/Features/home/data/models/category_model.dart';
 import 'package:gradproject/const.dart';
 
 class ServiceImage extends StatelessWidget {
-  const ServiceImage({super.key});
-
+  const ServiceImage({super.key, required this.category});
+final Category category;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -29,9 +30,9 @@ class ServiceImage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16)),
             alignment: Alignment.center,
             padding: const EdgeInsets.all(10),
-            child: const Text(
-              'مطاعم',
-              style: TextStyle(
+            child:  Text(
+              category.name,
+              style:const TextStyle(
                   fontFamily: font,
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
