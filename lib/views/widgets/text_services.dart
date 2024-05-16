@@ -12,7 +12,7 @@ class TextServices extends StatelessWidget {
       'هناك العديد من الخدمات في هذا التطبيق. ستجد هنا كل ما تحتاجه من مطاعم وكافيهات وأطباء ومستشفيات.',
       style: TextStyle(
         fontFamily: font,
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: FontWeight.bold,
         color: Colors.black, // Adjust the color as needed
         letterSpacing: 0.8, // Adjust the letter spacing

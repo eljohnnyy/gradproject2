@@ -15,7 +15,7 @@ class AppBarRow extends StatelessWidget {
       Image.asset('assets/images/logo.png',width: 70,),
      const  Spacer(),
     const  CustomButton(hint: 'تسجيل',color: Colors.white,backgroundColor: purple,),
-     IconButton(onPressed: (){}, icon: const Icon(Icons.menu,size: 50,))
+   
       ],
     );
   }

@@ -16,8 +16,8 @@ final Category category;
         children: [
           ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: Image.asset(
-                'assets/images/service.jpg',
+              child: Image.network(
+               category.imageUrl,
                 height: 500,
                 width: MediaQuery.of(context).size.width * .7,
                 fit: BoxFit.fill,
