@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:gradproject/const.dart';
 import 'package:gradproject/views/widgets/app_bar_row.dart';
+import 'package:gradproject/views/widgets/sign.dart';
 import 'package:gradproject/views/widgets/stack_one.dart';
 import 'package:gradproject/views/widgets/stack_three.dart';
 import 'package:gradproject/views/widgets/stack_two.dart';
@@ -57,7 +58,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         child: Column(
           children: [
             const SizedBox(height: 40),
-            const AppBarRow(),
+          const   AppBarRow(),
             const Divider(thickness: 3),
             const SizedBox(height: 40),
             const StackOne(),

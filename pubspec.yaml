@@ -41,6 +41,8 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
   intl: any
+  modal_progress_hud_nsn: ^0.5.1
+  shared_preferences: ^2.2.3
   smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
@@ -64,6 +66,7 @@ flutter:
     - assets/images/logo2.png
     - assets/images/logo3.png
     - assets/images/service.jpg
+    - assets/images/page.png
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -19,7 +19,7 @@ final void Function()? onPressed;
     const  Spacer(),
       Text(text,style: const TextStyle(fontFamily: font,fontSize: 25,fontWeight: FontWeight.bold),),
     const  Spacer(),
-     IconButton(onPressed: onPressed, icon:  Icon(icon,size: 50,color: Colors.black,))
+     IconButton(onPressed: onPressed, icon:  Icon(icon,size: 40,color: Colors.black,))
       ],
     );
   }

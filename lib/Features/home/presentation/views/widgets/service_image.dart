@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:gradproject/Features/details/presentation/views/widgets/details_body.dart';
 import 'package:gradproject/Features/home/data/models/category_model.dart';
 import 'package:gradproject/const.dart';
 
@@ -9,7 +10,10 @@ final Category category;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+Navigator.pushNamed(context, DetailsBody.detailsBodyId);
+
+      },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
       child: Stack(
@@ -18,12 +22,12 @@ final Category category;
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
                category.imageUrl,
-                height: 500,
+                  height: double.infinity,
                 width: MediaQuery.of(context).size.width * .7,
                 fit: BoxFit.fill,
               )),
           Container(
-            height: 500,
+            height: double.infinity,
             width: MediaQuery.of(context).size.width * .7,
             decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.5),
