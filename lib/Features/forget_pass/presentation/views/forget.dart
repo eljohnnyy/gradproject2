@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradproject/Features/forget_pass/data/models/forget_model.dart';
 
-import 'package:gradproject/Features/forget_pass/presentation/views/forget.dart';
-import 'package:gradproject/Features/home/presentation/views/main_page.dart';
-import 'package:gradproject/Features/login/data/models/login_model.dart';
-import 'package:gradproject/Features/login/presentation/view_model/cubit/login_cubit_cubit.dart';
+import 'package:gradproject/Features/forget_pass/presentation/view_model/cubit/forget_cubit_cubit.dart';
 import 'package:gradproject/core/utls/widget/sign_button.dart';
 import 'package:gradproject/core/utls/widget/sign_logo.dart';
 import 'package:gradproject/core/utls/widget/text_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class Forget extends StatefulWidget {
+  const Forget({Key? key}) : super(key: key);
+  static const forgetId = 'forget';
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Forget> createState() => _ForgetState();
 }
 
-class _LoginState extends State<Login> {
+class _ForgetState extends State<Forget> {
   bool hide = true;
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -28,32 +26,29 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubitCubit, LoginCubitState>(
+    return BlocConsumer<ForgetCubitCubit, ForgetCubitState>(
       listener: (context, state) async {
-        if (state is LoginCubitLoading) {
+        if (state is ForgetCubitLoading) {
           setState(() {
             isLoading = true;
           });
-        } else if (state is LoginCubitSuccess) {
+        } else if (state is ForgetCubitSuccess) {
           setState(() {
             isLoading = false;
           });
 
-   AwesomeDialog(
+          AwesomeDialog(
             context: context,
             dialogType: DialogType.success,
             animType: AnimType.bottomSlide,
             title: 'تم بنجاح',
-            desc: 'تم تسجيل الدخول بنجاح',
+            desc: 'تم تغيير كلمه المرور بنجاح',
             btnOkOnPress: null,
-            
           ).show();
           Future.delayed(const Duration(seconds: 1), () {
-            Navigator.of(context).pushReplacementNamed(MainPage.homePageId);
+            Navigator.of(context).pushReplacementNamed('login');
           });
-          SharedPreferences prefs = await SharedPreferences.getInstance();
-          prefs.setBool('isLoggedIn', true);
-        } else if (state is LoginCubitFailure) {
+        } else if (state is ForgetCubitFailure) {
           setState(() {
             isLoading = false;
           });
@@ -61,10 +56,10 @@ class _LoginState extends State<Login> {
             context: context,
             dialogType: DialogType.error,
             animType: AnimType.bottomSlide,
-            title: 'خطأ',
-            desc: 'يوجد خطأ في اسم المستخدم أو كلمة المرور',
+            title: 'خطأ فى اسم المستخدم وكلمه المرور يجب ان تحتوى على احرف ورموز وارقام',
+            desc: state.message,
             btnOkOnPress: () {},
-           btnOkColor: Colors.red,
+            btnOkColor: Colors.red,
           ).show();
         }
       },
@@ -95,7 +90,7 @@ class _LoginState extends State<Login> {
                         TextBody(
                           textController: _passwordController,
                           imageLink: "assets/images/protection.png",
-                          name: "كلمة المرور",
+                          name: "كلمة المرور الجديدة",
                           secure: true,
                           hide: hide,
                           onHide: () {
@@ -107,45 +102,19 @@ class _LoginState extends State<Login> {
                       ],
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      MaterialButton(
-                        onPressed: () {
-                         Navigator.pushNamed(context,Forget.forgetId );
-                         
-                        },
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: const Text(
-                          "هل نسيت كلمة السر؟",
-                          style: TextStyle(fontSize: 16, color: Color(0xff9f83f6)),
-                        ),
-                      ),
-                    ],
-                  ),
                   const SizedBox(height: 75),
                   SignButton(
-                    name: "تسجيل الدخول",
+                    name: "تغيير",
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        BlocProvider.of<LoginCubitCubit>(context).login(
-                          LoginModel(
+                        BlocProvider.of<ForgetCubitCubit>(context).forget(
+                          ForgetModel(
                             userName: _usernameController.text,
                             password: _passwordController.text,
                           ),
                         );
                       }
                     },
-                  ),
-                  MaterialButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('register');
-                    },
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: const Text(
-                      "لا تمتلك حساب؟",
-                      style: TextStyle(fontSize: 16, color: Color(0xff9f83f6)),
-                    ),
                   ),
                 ],
               ),

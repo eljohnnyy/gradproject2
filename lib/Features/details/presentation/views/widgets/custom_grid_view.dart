@@ -9,7 +9,7 @@ class CustomGridView extends StatelessWidget {
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-             childAspectRatio: 3 / 4.5,
+             childAspectRatio: 3 / 5,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
             ),

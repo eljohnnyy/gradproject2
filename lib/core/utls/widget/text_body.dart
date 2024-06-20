@@ -4,9 +4,11 @@ import 'package:gradproject/const.dart';
 
 class TextBody extends StatelessWidget {
   final String name;
+  final bool ?pass;
   final String imageLink;
   final bool secure;
   final bool hide;
+  final String ?hint;
   final void Function()? onHide;
   final TextInputType? keyboardType;
   final TextEditingController textController;
@@ -19,7 +21,7 @@ class TextBody extends StatelessWidget {
     required this.hide,
     this.onHide,
     required this.textController,
-    this.keyboardType,
+    this.keyboardType, this.pass, this.hint,
   });
 
   @override
@@ -54,13 +56,14 @@ class TextBody extends StatelessWidget {
               if(value!.isEmpty) {
                 return "لا يمكن ان يكون $name فارغ";
               }
+  
               return null;
             },
             textDirection: TextDirection.rtl,
             obscureText: secure? hide : false,
             keyboardType: keyboardType,
             decoration: InputDecoration(
-              hintText: "ادخل $name",
+              hintText:hint ?? "ادخل $name",
               contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               suffixIcon: secure? IconButton(
                 onPressed: onHide,
