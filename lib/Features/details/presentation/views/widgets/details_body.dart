@@ -37,11 +37,11 @@ class DetailsBody extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 10), 
-          const  Expanded(
+            const SizedBox(height: 10),
+            const Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
-                child:  CustomGridView(),
+                child: CustomGridView(),
               ),
             ),
           ],

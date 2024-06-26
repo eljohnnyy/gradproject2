@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gradproject/const.dart';
 
-
 class SignButton extends StatelessWidget {
   final String name;
   const SignButton({super.key, required this.name, this.onPressed});
-final void Function()? onPressed;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -16,9 +15,7 @@ final void Function()? onPressed;
       textColor: Colors.white,
       minWidth: (MediaQuery.of(context).size.width * 0.5) - 30,
       shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(7),
-        borderSide: BorderSide.none
-      ),
+          borderRadius: BorderRadius.circular(7), borderSide: BorderSide.none),
       child: FittedBox(
         child: Text(
           name,

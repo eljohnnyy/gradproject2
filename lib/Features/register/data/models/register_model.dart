@@ -11,14 +11,14 @@ class RegisterModel {
 
   RegisterModel(
       {required this.name,
-        required this.lastName,
-        required this.password1,
-        required this.email,
-        required this.phone,
-        required this.street,
-        required this.city,
-        required this.userName,
-        required this.password});
+      required this.lastName,
+      required this.password1,
+      required this.email,
+      required this.phone,
+      required this.street,
+      required this.city,
+      required this.userName,
+      required this.password});
 
   Map<String, dynamic> toJson() {
     return {

@@ -6,7 +6,7 @@ class RegisterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: (){
+      onPressed: () {
         Navigator.of(context).pushReplacementNamed('register');
       },
       color: const Color(0xffffffff),
@@ -15,15 +15,12 @@ class RegisterButton extends StatelessWidget {
       elevation: 0,
       textColor: Colors.black,
       shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(7),
+        borderRadius: BorderRadius.circular(7),
       ),
       child: const FittedBox(
         child: Text(
           "إنشاء حساب",
-          style: TextStyle(
-            fontSize: 18,
-            fontFamily: "ElMessiri"
-          ),
+          style: TextStyle(fontSize: 18, fontFamily: "ElMessiri"),
         ),
       ),
     );

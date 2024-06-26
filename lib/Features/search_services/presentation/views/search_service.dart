@@ -3,7 +3,7 @@ import 'package:gradproject/Features/search_services/presentation/views/widgets/
 
 class SearchService extends StatelessWidget {
   const SearchService({super.key});
-static const serviceSearchId='SearchService';
+  static const serviceSearchId = 'SearchService';
   @override
   Widget build(BuildContext context) {
     return const SearchServiceBody();

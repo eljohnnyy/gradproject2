@@ -9,24 +9,24 @@ class StackOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Stack(
-     children: [
-       
-       Align(
-         alignment: Alignment.topLeft,
-         child: CircleAvatar(
-           
-           radius: 50,
-           backgroundColor: purple,),
-       ),
-         Positioned(
-           top: -10,
-           left: 60,
-           child: Text(
-             
-             'خدماتك',style: TextStyle(fontFamily: font,fontSize: 90,fontWeight: FontWeight.bold),),
-         ),
-        
-     ],
+      children: [
+        Align(
+          alignment: Alignment.topLeft,
+          child: CircleAvatar(
+            radius: 50,
+            backgroundColor: purple,
+          ),
+        ),
+        Positioned(
+          top: -10,
+          left: 60,
+          child: Text(
+            'خدماتك',
+            style: TextStyle(
+                fontFamily: font, fontSize: 90, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
     );
   }
 }

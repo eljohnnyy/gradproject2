@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gradproject/Features/details/presentation/views/widgets/details_body.dart';
 import 'package:gradproject/Features/home/data/models/category_model.dart';
@@ -6,13 +5,12 @@ import 'package:gradproject/const.dart';
 
 class ServiceImage extends StatelessWidget {
   const ServiceImage({super.key, required this.category});
-final Category category;
+  final Category category;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-Navigator.pushNamed(context, DetailsBody.detailsBodyId);
-
+        Navigator.pushNamed(context, DetailsBody.detailsBodyId);
       },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
@@ -21,8 +19,8 @@ Navigator.pushNamed(context, DetailsBody.detailsBodyId);
           ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
-               category.imageUrl,
-                  height: double.infinity,
+                category.imageUrl,
+                height: double.infinity,
                 width: MediaQuery.of(context).size.width * .7,
                 fit: BoxFit.fill,
               )),
@@ -34,9 +32,9 @@ Navigator.pushNamed(context, DetailsBody.detailsBodyId);
                 borderRadius: BorderRadius.circular(16)),
             alignment: Alignment.center,
             padding: const EdgeInsets.all(10),
-            child:  Text(
+            child: Text(
               category.name,
-              style:const TextStyle(
+              style: const TextStyle(
                   fontFamily: font,
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
@@ -51,10 +49,10 @@ Navigator.pushNamed(context, DetailsBody.detailsBodyId);
                 radius: 60,
                 child: Center(
                   child: Icon(
-                                    Icons.east,
-                                    color: Colors.white,
-                                    size: 40,
-                                  ),
+                    Icons.east,
+                    color: Colors.white,
+                    size: 40,
+                  ),
                 ),
               ))
         ],

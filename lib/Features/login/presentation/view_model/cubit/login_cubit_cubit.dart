@@ -28,5 +28,6 @@ class LoginCubitCubit extends Cubit<LoginCubitState> {
     } catch (e) {
       emit(LoginCubitFailure('Unexpected error occurred'));
     }
+   
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:gradproject/Features/forget_pass/presentation/views/forget.dart';
+import 'package:gradproject/Features/home/presentation/view_model/cubit/user_cubit.dart';
 import 'package:gradproject/Features/home/presentation/views/main_page.dart';
 import 'package:gradproject/Features/login/data/models/login_model.dart';
 import 'package:gradproject/Features/login/presentation/view_model/cubit/login_cubit_cubit.dart';
@@ -39,20 +39,27 @@ class _LoginState extends State<Login> {
             isLoading = false;
           });
 
-   AwesomeDialog(
-            context: context,
-            dialogType: DialogType.success,
-            animType: AnimType.bottomSlide,
-            title: 'تم بنجاح',
-            desc: 'تم تسجيل الدخول بنجاح',
-            btnOkOnPress: null,
-            
-          ).show();
-          Future.delayed(const Duration(seconds: 1), () {
-            Navigator.of(context).pushReplacementNamed(MainPage.homePageId);
-          });
-          SharedPreferences prefs = await SharedPreferences.getInstance();
-          prefs.setBool('isLoggedIn', true);
+          String? token = BlocProvider.of<LoginCubitCubit>(context).token;
+          if (token != null) {
+            BlocProvider.of<UserCubit>(context).user(token: token);
+
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            await prefs.setString('token', token);
+
+           AwesomeDialog(
+              context: context,
+              dialogType: DialogType.success,
+              animType: AnimType.bottomSlide,
+              title: 'تم بنجاح',
+              desc: 'تم تسجيل الدخول بنجاح',
+              btnOkOnPress: null,
+            ).show();
+
+            Future.delayed(const Duration(seconds: 1), () {
+              Navigator.of(context).pushReplacementNamed(MainPage.homePageId);
+            });
+            await prefs.setBool('isLoggedIn', true);
+          }
         } else if (state is LoginCubitFailure) {
           setState(() {
             isLoading = false;
@@ -64,7 +71,7 @@ class _LoginState extends State<Login> {
             title: 'خطأ',
             desc: 'يوجد خطأ في اسم المستخدم أو كلمة المرور',
             btnOkOnPress: () {},
-           btnOkColor: Colors.red,
+            btnOkColor: Colors.red,
           ).show();
         }
       },
@@ -112,8 +119,7 @@ class _LoginState extends State<Login> {
                     children: [
                       MaterialButton(
                         onPressed: () {
-                         Navigator.pushNamed(context,Forget.forgetId );
-                         
+                          Navigator.pushNamed(context, Forget.forgetId);
                         },
                         padding: const EdgeInsets.symmetric(horizontal: 5),
                         child: const Text(

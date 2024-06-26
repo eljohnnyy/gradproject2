@@ -19,8 +19,8 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   bool hide = true;
   bool hide1 = true;
-   final TextEditingController frist = TextEditingController();
-    final TextEditingController last = TextEditingController();
+  final TextEditingController frist = TextEditingController();
+  final TextEditingController last = TextEditingController();
   final TextEditingController user = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController password1 = TextEditingController();
@@ -30,13 +30,12 @@ class _RegisterState extends State<Register> {
   final TextEditingController city = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
 
-
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
-       listener: (context, state) async {
-      if (state is RegisterLoading) {
+      listener: (context, state) async {
+        if (state is RegisterLoading) {
           setState(() {
             isLoading = true;
           });
@@ -55,7 +54,7 @@ class _RegisterState extends State<Register> {
             },
             btnOkColor: Colors.green,
           ).show();
-          
+
           SharedPreferences prefs = await SharedPreferences.getInstance();
           prefs.setBool('isLoggedIn', true);
         } else if (state is RegisterFailure) {
@@ -67,9 +66,9 @@ class _RegisterState extends State<Register> {
             dialogType: DialogType.error,
             animType: AnimType.bottomSlide,
             title: 'خطأ',
-            desc:state.errMessage ,
+            desc: state.errMessage,
             btnOkOnPress: () {},
-           btnOkColor: Colors.red,
+            btnOkColor: Colors.red,
           ).show();
         }
       },
@@ -93,18 +92,17 @@ class _RegisterState extends State<Register> {
                         key: formKey,
                         child: Column(
                           children: [
-                              TextBody(
+                            TextBody(
                               textController: frist,
                               imageLink: "assets/images/avatar.png",
-                              name:"الاسم الاول",
+                              name: "الاسم الاول",
                               secure: false,
-                              
                               hide: false,
                             ),
-                              TextBody(
+                            TextBody(
                               textController: last,
                               imageLink: "assets/images/avatar.png",
-                            name:"الاسم الاخير",
+                              name: "الاسم الاخير",
                               secure: false,
                               hide: false,
                             ),
@@ -118,9 +116,8 @@ class _RegisterState extends State<Register> {
                             TextBody(
                               textController: password,
                               imageLink: "assets/images/protection.png",
-                             pass: true,
+                              pass: true,
                               name: "كلمة المرور",
-                             
                               secure: true,
                               hide: hide,
                               onHide: () {
@@ -133,10 +130,9 @@ class _RegisterState extends State<Register> {
                               textController: password1,
                               imageLink: "assets/images/protection.png",
                               name: "تاكيد كلمة المرور",
-                             pass: true,
+                              pass: true,
                               secure: true,
                               hide: hide1,
-                             
                               onHide: () {
                                 setState(() {
                                   hide1 ? hide1 = false : hide1 = true;
@@ -183,7 +179,17 @@ class _RegisterState extends State<Register> {
                       name: "إنشاء حساب",
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          BlocProvider.of<RegisterCubit>(context).register(RegisterModel(password1: password1.text, email: email.text, phone: int.parse(phone.text), street: street.text, city: city.text, userName: user.text, password: password.text, name: frist.text,lastName: last.text));
+                          BlocProvider.of<RegisterCubit>(context).register(
+                              RegisterModel(
+                                  password1: password1.text,
+                                  email: email.text,
+                                  phone: int.parse(phone.text),
+                                  street: street.text,
+                                  city: city.text,
+                                  userName: user.text,
+                                  password: password.text,
+                                  name: frist.text,
+                                  lastName: last.text));
                         }
                       },
                     ),

@@ -4,7 +4,10 @@ import 'package:gradproject/Features/forget_pass/data/repo/forget_repo_impl.dart
 import 'package:gradproject/Features/forget_pass/presentation/view_model/cubit/forget_cubit_cubit.dart';
 
 import 'package:gradproject/Features/forget_pass/presentation/views/forget.dart';
+import 'package:gradproject/Features/home/data/repo/user_repo_impl.dart';
+import 'package:gradproject/Features/home/presentation/view_model/cubit/user_cubit.dart';
 import 'package:gradproject/Features/register/presentation/views/register.dart';
+import 'package:gradproject/views/home_view.dart';
 import 'package:gradproject/views/widgets/sign.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -33,9 +36,16 @@ class GradProject extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => LoginCubitCubit(LoginRepoImpl(ApiServiceSign()))),
-        BlocProvider(create: (context) => RegisterCubit(RegisterRepoImpl(ApiServiceSign()))),
-        BlocProvider(create: (context) => ForgetCubitCubit(ForgetRepoImpl(ApiServiceSign()))),
+        BlocProvider(
+            create: (context) =>
+                LoginCubitCubit(LoginRepoImpl(ApiServiceSign()))),
+        BlocProvider(
+            create: (context) =>
+                RegisterCubit(RegisterRepoImpl(ApiServiceSign()))),
+        BlocProvider(
+            create: (context) =>
+                ForgetCubitCubit(ForgetRepoImpl(ApiServiceSign()))),
+                BlocProvider(create: (context)=>UserCubit(UserRepoImpl()))
       ],
       child: MaterialApp(
         title: 'Grad Project',
@@ -48,7 +58,8 @@ class GradProject extends StatelessWidget {
           SearchService.serviceSearchId: (context) => const SearchService(),
           SearchCategory.searchCategoryId: (context) => const SearchCategory(),
           Sign.id: (context) => const Sign(),
-           Forget.forgetId: (context) => const Forget(),
+          Forget.forgetId: (context) => const Forget(),
+           HomeView.homeId: (context) => const HomeView(),
           'login': (context) => const Login(),
           'register': (context) => const Register(),
         },
@@ -84,9 +95,11 @@ class _AppStartupState extends State<AppStartup> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
     // ignore: use_build_context_synchronously
-    
-    Navigator.of(context).pushReplacementNamed(isLoggedIn ? MainPage.homePageId : 'login');
+
+    Navigator.of(context)
+        .pushReplacementNamed(isLoggedIn ? MainPage.homePageId : 'login');
   }
+
   @override
   Widget build(BuildContext context) {
     return const SplashView();

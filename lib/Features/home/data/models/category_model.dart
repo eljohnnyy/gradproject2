@@ -1,9 +1,10 @@
 class Category {
   final int id;
   final String name;
-final String imageUrl;
- const Category({required this.id,required this.imageUrl, required this.name});
-  static const List<Category> categories =  [
+  final String imageUrl;
+  const Category(
+      {required this.id, required this.imageUrl, required this.name});
+  static const List<Category> categories = [
     Category(
       id: 1,
       imageUrl:
@@ -19,7 +20,7 @@ final String imageUrl;
     Category(
       id: 3,
       imageUrl:
-         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEmTokcY-ssy44ykysFt3gKSWjKtwlvq3Y5g&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEmTokcY-ssy44ykysFt3gKSWjKtwlvq3Y5g&s',
       name: 'دكاتره',
     ),
     Category(
@@ -37,13 +38,13 @@ final String imageUrl;
     Category(
       id: 6,
       imageUrl:
-           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxzdJsDtpaiPkb4F-OevoHZfdtY5URsfjUw&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKxzdJsDtpaiPkb4F-OevoHZfdtY5URsfjUw&s',
       name: 'سوبر ماركت',
     ),
     Category(
       id: 7,
       imageUrl:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIOqyIB9op-Cq_Z_IhZwE7VPGrWl2NMY7Png&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIOqyIB9op-Cq_Z_IhZwE7VPGrWl2NMY7Png&s',
       name: 'ورك سبيس',
     ),
   ];

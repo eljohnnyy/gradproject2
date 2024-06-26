@@ -20,7 +20,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     // Initialize animation controller
     _animationController = AnimationController(
       vsync: this,
-      duration:const Duration(seconds: 2), // Adjust the duration as needed
+      duration: const Duration(seconds: 2), // Adjust the duration as needed
     );
 
     // Initialize opacity animation

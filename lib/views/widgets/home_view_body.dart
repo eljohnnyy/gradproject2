@@ -58,17 +58,18 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         child: Column(
           children: [
             const SizedBox(height: 40),
-          const   AppBarRow(),
+            const AppBarRow(),
             const Divider(thickness: 3),
             const SizedBox(height: 40),
             const StackOne(),
             const Text(
               'كلها بسيطة وسهلة',
-              style: TextStyle(fontFamily: font, fontSize: 25,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontFamily: font, fontSize: 25, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             AnimatedSwitcher(
-              duration:const Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
               child: Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
@@ -78,7 +79,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                       color: const Color.fromRGBO(0, 0, 0, 1).withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset:const Offset(0, 4),
+                      offset: const Offset(0, 4),
                     ),
                   ],
                 ),

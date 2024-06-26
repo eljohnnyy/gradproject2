@@ -13,13 +13,9 @@ class SignLogo extends StatelessWidget {
           width: 300,
           height: 150,
         ),
-
         const Text(
           "قم بتسجيل دخولك",
-          style: TextStyle(
-            fontSize: 30,
-            fontFamily: "ElMessiri"
-          ),
+          style: TextStyle(fontSize: 30, fontFamily: "ElMessiri"),
         ),
       ],
     );

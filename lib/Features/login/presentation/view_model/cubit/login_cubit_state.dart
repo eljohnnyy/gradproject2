@@ -10,10 +10,10 @@ final class LoginCubitLoading extends LoginCubitState {}
 final class LoginCubitSuccess extends LoginCubitState {}
 
 final class LoginCubitFailure extends LoginCubitState {
-final String message;
+  final String message;
 
-  LoginCubitFailure( this.message);
-List<Object?> get props => [message];
+  LoginCubitFailure(this.message);
+  List<Object?> get props => [message];
 
   String? get errMessage => null;
 }

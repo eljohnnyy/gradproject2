@@ -8,7 +8,7 @@ class TextServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  Text(
+    return const Text(
       'هناك العديد من الخدمات في هذا التطبيق. ستجد هنا كل ما تحتاجه من مطاعم وكافيهات وأطباء ومستشفيات.',
       style: TextStyle(
         fontFamily: font,
@@ -22,4 +22,3 @@ class TextServices extends StatelessWidget {
     );
   }
 }
-

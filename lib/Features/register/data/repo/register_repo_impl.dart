@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -35,6 +34,4 @@ class RegisterRepoImpl implements RegisterRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
-
-
 }

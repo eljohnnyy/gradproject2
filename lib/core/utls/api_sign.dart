@@ -3,7 +3,8 @@ import 'package:dio/dio.dart';
 class ApiServiceSign {
   final Dio dio = Dio();
 
-  Future<Response> sign({required String url, required Map<String, dynamic> body}) async {
+  Future<Response> sign(
+      {required String url, required Map<String, dynamic> body}) async {
     var formData = FormData.fromMap(body);
     try {
       var response = await dio.post(

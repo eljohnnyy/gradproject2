@@ -56,7 +56,8 @@ class _ForgetState extends State<Forget> {
             context: context,
             dialogType: DialogType.error,
             animType: AnimType.bottomSlide,
-            title: 'خطأ فى اسم المستخدم وكلمه المرور يجب ان تحتوى على احرف ورموز وارقام',
+            title:
+                'خطأ فى اسم المستخدم وكلمه المرور يجب ان تحتوى على احرف ورموز وارقام',
             desc: state.message,
             btnOkOnPress: () {},
             btnOkColor: Colors.red,

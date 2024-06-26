@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradproject/Features/register/data/models/register_model.dart';
 import 'package:gradproject/Features/register/data/repo/register_repo_impl.dart';
-
 
 part 'register_state.dart';
 
@@ -17,10 +15,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     try {
       final result = await registerRepoImpl.register(registerModel);
       result.fold(
-            (failure) {
+        (failure) {
           emit(RegisterFailure(failure.errMessage));
         },
-            (r) {
+        (r) {
           token = r;
           emit(RegisterSuccess());
         },
