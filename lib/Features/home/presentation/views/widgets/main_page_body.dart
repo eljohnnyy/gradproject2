@@ -25,13 +25,13 @@ class _MainPageBodyState extends State<MainPageBody> {
   void _openDrawer() {
     _scaffoldKey.currentState?.openDrawer();
   }
+
   @override
   void initState() {
     super.initState();
-      _loadUserData();
- 
-
+    _loadUserData();
   }
+
   Future<void> _loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('token');
@@ -39,23 +39,24 @@ class _MainPageBodyState extends State<MainPageBody> {
       BlocProvider.of<UserCubit>(context).user(token: token);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer:  CustomDrawer(
-        
+      drawer: CustomDrawer(
         child: BlocBuilder<UserCubit, UserState>(
           builder: (context, state) {
-            if(state is UserSuccess){
-            return  DrawerView(
-              userData: state.user,
-            );}   else if(state is Failure){
-         return const Text('data');
-
-            }
-            else{
-              return const Center(child: CircularProgressIndicator(),);
+            if (state is UserSuccess) {
+              return DrawerView(
+                userData: state.user,
+              );
+            } else if (state is UserFailure) {
+              return const Text('data');
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
           },
         ),

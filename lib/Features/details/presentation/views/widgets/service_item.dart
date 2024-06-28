@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:gradproject/Features/details/data/models/details/details.dart';
+import 'package:gradproject/Features/details/presentation/views/description_view.dart';
 
 class ServiceItem extends StatelessWidget {
-  const ServiceItem({super.key});
-
+  const ServiceItem({super.key, required this.details, required this.url});
+final Details details;
+final String url;
   @override
   Widget build(BuildContext context) {
+       String imageUrl;
+    if (details.images != null && details.images!.isNotEmpty) {
+      imageUrl = details.images![0].image ??
+         url;
+    }else {
+      imageUrl = url;
+    }
     return Column(
       children: [
         Container(
@@ -14,18 +24,24 @@ class ServiceItem extends StatelessWidget {
           ),
           height: MediaQuery.sizeOf(context).height * 0.25,
           width: MediaQuery.sizeOf(context).width * 0.4,
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                  fit: BoxFit.cover,
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIOqyIB9op-Cq_Z_IhZwE7VPGrWl2NMY7Png&s')),
-        ),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, DescriptionView.id,arguments: details);
+            },
+            child: ClipRRect(
+              
+                borderRadius: BorderRadius.circular(16),
+                child: Image.network(
+                    fit: BoxFit.cover, imageUrl)),
+          )),
         const SizedBox(height: 10),
-        const Text(
-          'مطعم',
-          style: TextStyle(
+        Text(
+        details.name!,
+        textAlign: TextAlign.center,
+          style:const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
+            
           ),
         )
       ],

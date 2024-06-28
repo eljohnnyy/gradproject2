@@ -6,8 +6,7 @@ import 'package:gradproject/Features/home/presentation/views/widgets/logout_butt
 import 'package:gradproject/const.dart';
 
 class DrawerView extends StatelessWidget {
-
-final UserData userData;
+  final UserData userData;
   const DrawerView({
     Key? key,
     required this.userData,
@@ -39,7 +38,7 @@ final UserData userData;
             HelloText(name: userData.firstName!),
             const SizedBox(height: 30),
             Data(
-              data:userData.userName!,
+              data: userData.userName!,
               icon: Icons.person_sharp,
             ),
             Data(

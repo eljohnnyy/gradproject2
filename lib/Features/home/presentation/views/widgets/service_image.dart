@@ -10,10 +10,11 @@ class ServiceImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, DetailsBody.detailsBodyId);
+        Navigator.pushNamed(context, DetailsBody.detailsBodyId,arguments: {'id': category.id, 'name': category.name,'image':category.imageUrl},);
       },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
+      
       child: Stack(
         children: [
           ClipRRect(
@@ -25,7 +26,7 @@ class ServiceImage extends StatelessWidget {
                 fit: BoxFit.fill,
               )),
           Container(
-            height: double.infinity,
+               height:double.infinity,
             width: MediaQuery.of(context).size.width * .7,
             decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.5),
@@ -41,20 +42,7 @@ class ServiceImage extends StatelessWidget {
                   color: Colors.white),
             ),
           ),
-          const Positioned(
-              bottom: -40,
-              right: -25,
-              child: CircleAvatar(
-                backgroundColor: purple,
-                radius: 60,
-                child: Center(
-                  child: Icon(
-                    Icons.east,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-              ))
+         
         ],
       ),
     );

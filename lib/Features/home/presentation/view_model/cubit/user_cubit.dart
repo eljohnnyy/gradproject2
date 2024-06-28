@@ -7,16 +7,14 @@ part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit(this.userRepo) : super(UserInitial());
-final UserRepo userRepo;
-Future<void>user({required String token})async{
-emit(UserLoading());
-var result=await userRepo.user(token: token);
-result.fold((l) {
-  emit(UserFailure(errMessage: l.errMessage));
-}, (r) {
-  emit(UserSuccess(r));
-});
-
-}
-
+  final UserRepo userRepo;
+  Future<void> user({required String token}) async {
+    emit(UserLoading());
+    var result = await userRepo.user(token: token);
+    result.fold((l) {
+      emit(UserFailure(errMessage: l.errMessage));
+    }, (r) {
+      emit(UserSuccess(r));
+    });
+  }
 }

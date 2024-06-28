@@ -46,7 +46,7 @@ class _LoginState extends State<Login> {
             SharedPreferences prefs = await SharedPreferences.getInstance();
             await prefs.setString('token', token);
 
-           AwesomeDialog(
+            AwesomeDialog(
               context: context,
               dialogType: DialogType.success,
               animType: AnimType.bottomSlide,
@@ -124,7 +124,8 @@ class _LoginState extends State<Login> {
                         padding: const EdgeInsets.symmetric(horizontal: 5),
                         child: const Text(
                           "هل نسيت كلمة السر؟",
-                          style: TextStyle(fontSize: 16, color: Color(0xff9f83f6)),
+                          style:
+                              TextStyle(fontSize: 16, color: Color(0xff9f83f6)),
                         ),
                       ),
                     ],

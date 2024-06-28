@@ -10,12 +10,11 @@ class LogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () async{
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-            prefs.remove('isLoggedIn');
-            prefs.remove('token');
-            Navigator.of(context).pushReplacementNamed(HomeView.homeId);
-
+      onPressed: () async {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.remove('isLoggedIn');
+        prefs.remove('token');
+        Navigator.of(context).pushReplacementNamed(HomeView.homeId);
       },
       color: purple,
       padding: const EdgeInsets.all(5),

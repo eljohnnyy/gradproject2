@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradproject/Features/details/data/repo/details_repo_impl.dart';
+import 'package:gradproject/Features/details/presentation/view_model/cubit/details_cubit.dart';
+import 'package:gradproject/Features/details/presentation/views/description_view.dart';
 import 'package:gradproject/Features/forget_pass/data/repo/forget_repo_impl.dart';
 import 'package:gradproject/Features/forget_pass/presentation/view_model/cubit/forget_cubit_cubit.dart';
 
@@ -45,7 +48,11 @@ class GradProject extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 ForgetCubitCubit(ForgetRepoImpl(ApiServiceSign()))),
-                BlocProvider(create: (context)=>UserCubit(UserRepoImpl()))
+        BlocProvider(create: (context) => UserCubit(UserRepoImpl())),
+        BlocProvider(
+          create: (context) => DetailsCubit(DetailsRepoImpl()),
+        
+        )
       ],
       child: MaterialApp(
         title: 'Grad Project',
@@ -59,9 +66,10 @@ class GradProject extends StatelessWidget {
           SearchCategory.searchCategoryId: (context) => const SearchCategory(),
           Sign.id: (context) => const Sign(),
           Forget.forgetId: (context) => const Forget(),
-           HomeView.homeId: (context) => const HomeView(),
+          HomeView.homeId: (context) => const HomeView(),
           'login': (context) => const Login(),
           'register': (context) => const Register(),
+          DescriptionView.id:(context) =>const DescriptionView()
         },
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
